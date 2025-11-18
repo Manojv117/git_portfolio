@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name | CSE Student Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #e4e4e7;
+            background: #0a0a0a;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #27272a;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #a1a1aa;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: #3b82f6;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffffff, #a1a1aa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            color: #71717a;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero .description {
+            font-size: 1.1rem;
+            color: #a1a1aa;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            line-height: 1.8;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 32px;
+            background: #3b82f6;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 1px solid #3b82f6;
+        }
+
+        .btn:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            color: #71717a;
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Education Section */
+        .education-card {
+            background: #18181b;
+            border: 1px solid #27272a;
+            border-radius: 12px;
+            padding: 2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .education-card h3 {
+            color: #3b82f6;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-card .university {
+            color: #a1a1aa;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .education-card .degree {
+            color: #e4e4e7;
+            font-size: 1rem;
+        }
+
+        /* Timeline */
+        .timeline {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            background: #18181b;
+            border: 1px solid #27272a;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 1rem;
+            top: 2rem;
+            width: 12px;
+            height: 12px;
+            background: #3b82f6;
+            border-radius: 50%;
+        }
+
+        .year-badge {
+            display: inline-block;
+            background: #1e293b;
+            color: #3b82f6;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-item h3 {
+            color: #e4e4e7;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item p {
+            color: #a1a1aa;
+            line-height: 1.8;
+        }
+
+        .project-highlight {
+            background: #27272a;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            border-left: 3px solid #3b82f6;
+        }
+
+        /* Certifications */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .cert-card {
+            background: #18181b;
+            border: 1px solid #27272a;
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .cert-card:hover {
+            border-color: #3b82f6;
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.1);
+        }
+
+        .cert-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cert-card h3 {
+            color: #e4e4e7;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .cert-card .issuer {
+            color: #3b82f6;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .skill-category {
+            margin-bottom: 2rem;
+        }
+
+        .skill-category h3 {
+            color: #a1a1aa;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .skill-tag {
+            background: #18181b;
+            border: 1px solid #27272a;
+            color: #e4e4e7;
+            padding: 0.5rem 1.2rem;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+        }
+
+        .skill-tag:hover {
+            border-color: #3b82f6;
+            background: #1e293b;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: #18181b;
+            border-top: 1px solid #27272a;
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            background: #27272a;
+            color: #e4e4e7;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: 1px solid #27272a;
+        }
+
+        .social-link:hover {
+            background: #3b82f6;
+            border-color: #3b82f6;
+            transform: translateY(-2px);
+        }
+
+        footer {
+            background: #0a0a0a;
+            border-top: 1px solid #27272a;
+            text-align: center;
+            padding: 2rem 0;
+            color: #71717a;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+
+            section h2 {
+                font-size: 2rem;
+            }
+
+            .timeline-item {
+                padding-left: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <h1>Your Name</h1>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2>Hi, I'm Your Name</h2>
+            <p class="subtitle">CSE Student | Tech Enthusiast | Fast Learner</p>
+            <p class="description">
+                A high-potential, hardworking, and tech-driven Computer Science student with a passion for web development, data science, and AI. Constantly learning and building innovative solutions.
+            </p>
+            <a href="#achievements" class="btn">Explore My Journey</a>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="about">
+        <div class="container">
+            <h2>Education</h2>
+            <p class="section-subtitle">Building a strong foundation in Computer Science</p>
+            <div class="education-card">
+                <h3>Bachelor of Technology (B.Tech)</h3>
+                <p class="university">Amity University Bengaluru</p>
+                <p class="degree">Computer Science & Engineering (CSE) • Currently Pursuing</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Timeline -->
+    <section id="achievements" style="background: #0f0f0f;">
+        <div class="container">
+            <h2>Academic Journey & Achievements</h2>
+            <p class="section-subtitle">Milestones that define my growth</p>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <span class="year-badge">1st Year</span>
+                    <h3>Web Development Breakthrough</h3>
+                    <p>Developed my first major project - a comprehensive Transportation Portal for Amity University. This full-stack web application streamlined campus transportation management and demonstrated my ability to create practical, user-centric solutions.</p>
+                    <div class="project-highlight">
+                        <strong>Project: University Transportation Portal</strong><br>
+                        A complete web solution for managing campus transportation needs
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="year-badge">2nd Year</span>
+                    <h3>Data Science & AI Specialization</h3>
+                    <p>Pivoted towards Data Science, Machine Learning, and Deep Learning. Completed professional certifications from Oracle, gaining industry-recognized expertise in AI Foundations, Generative AI, and Data Science methodologies.</p>
+                    <div class="project-highlight">
+                        <strong>Key Focus Areas:</strong><br>
+                        • Artificial Intelligence & Machine Learning<br>
+                        • Deep Learning Algorithms<br>
+                        • Generative AI Applications<br>
+                        • Data Science Fundamentals
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="year-badge">2nd Year</span>
+                    <h3>Software Engineering Simulation - JPMorgan Chase & Co.</h3>
+                    <p>Successfully completed a comprehensive Software Engineering Simulation via Forage platform. Gained practical experience in enterprise-level software development, working on real-world scenarios used by JPMorgan's engineering teams.</p>
+                    <div class="project-highlight">
+                        <strong>Simulation Highlights:</strong><br>
+                        • Real-world software engineering challenges<br>
+                        • Industry-standard development practices<br>
+                        • Professional-grade coding and problem-solving
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications">
+        <div class="container">
+            <h2>Professional Certifications</h2>
+            <p class="section-subtitle">Industry-recognized credentials</p>
+            <div class="cert-grid">
+                <div class="cert-card">
+                    <div class="cert-icon">🎓</div>
+                    <h3>Oracle AI Foundations</h3>
+                    <p class="issuer">Oracle Corporation</p>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">🤖</div>
+                    <h3>Oracle Professional Generative AI</h3>
+                    <p class="issuer">Oracle Corporation</p>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">📊</div>
+                    <h3>Oracle Professional Data Science</h3>
+                    <p class="issuer">Oracle Corporation</p>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">💼</div>
+                    <h3>Software Engineering Simulation</h3>
+                    <p class="issuer">JPMorgan Chase & Co. (via Forage)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" style="background: #0f0f0f;">
+        <div class="container">
+            <h2>Technical Skills</h2>
+            <p class="section-subtitle">Technologies I work with</p>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Web Development</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS3</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">React.js</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Express.js</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Data Science & AI</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Machine Learning</span>
+                        <span class="skill-tag">Deep Learning</span>
+                        <span class="skill-tag">AI/ML Algorithms</span>
+                        <span class="skill-tag">Generative AI</span>
+                        <span class="skill-tag">Data Analysis</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools & Platforms</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Git & GitHub</span>
+                        <span class="skill-tag">VS Code</span>
+                        <span class="skill-tag">Jupyter Notebook</span>
+                        <span class="skill-tag">Oracle Cloud</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Let's Connect</h2>
+            <p class="section-subtitle">Open to opportunities and collaborations</p>
+            <div class="contact-content">
+                <p>I'm always eager to discuss new projects, innovative ideas, and opportunities to learn and grow. Whether it's web development, data science, or AI - let's build something amazing together!</p>
+                <div class="social-links">
+                    <a href="https://github.com/yourusername" class="social-link">GitHub</a>
+                    <a href="https://linkedin.com/in/yourusername" class="social-link">LinkedIn</a>
+                    <a href="mailto:your.email@example.com" class="social-link">Email</a>
+                    <a href="https://twitter.com/yourusername" class="social-link">Twitter</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Your Name | CSE Student at Amity University Bengaluru</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
