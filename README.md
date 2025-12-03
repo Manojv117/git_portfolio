@@ -7,7 +7,7 @@ My Portfolio
 -->
 
 <p align="center">
-  <img src="./avatar.png" alt="Manoj's Avatar" width="160" style="border-radius:50%;" />
+  <img src="https://github.com/user-attachments/assets/376b8e47-0148-4ae8-a35a-3b88f0c2cb17" alt="Manoj's Avatar" width="160" style="border-radius:50%;" />
 </p>
 
 <h1 align="center">Hi, I'm Manoj 👋</h1>
@@ -72,5 +72,5 @@ With a continuous learning mindset and a deep curiosity for emerging technologie
 
 <p align="center">✨ “Learning never stops — every dataset has a story to tell.” ✨</p>
 
-<img width="1024" height="1024" alt="avatar.png" src="https://github.com/user-attachments/assets/376b8e47-0148-4ae8-a35a-3b88f0c2cb17" />
+< src="https://github.com/user-attachments/assets/376b8e47-0148-4ae8-a35a-3b88f0c2cb17" />
 
